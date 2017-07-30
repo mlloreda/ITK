@@ -1,0 +1,152 @@
+* ITK notes
+
+** Relevant
+
+Connected Components:
+
+- itkConnectedComponentImageFilter 
+  - https://itk.org/Doxygen/html/classitk_1_1ConnectedComponentImageFilter.html
+  - https://github.com/hinerm/ITK/blob/master/Modules/Segmentation/ConnectedComponents/include/itkConnectedComponentImageFilter.hxx
+
+Region growing:
+
+- itkConfidenceConnectedImageFilter
+  - https://itk.org/Doxygen/html/classitk_1_1ConfidenceConnectedImageFilter.html
+  - https://itk.org/Doxygen/html/itkConfidenceConnectedImageFilter_8h_source.html
+- itkIsolatedConnectedImageFilter
+  - https://itk.org/Doxygen/html/classitk_1_1IsolatedConnectedImageFilter.html
+  - https://itk.org/Doxygen/html/itkIsolatedConnectedImageFilter_8h_source.html
+
+** Irrelevant
+
+Core:
+
+- itkConnectedRegionsMeshFilter
+- itkConnectedComponentAlgorithm
+
+Connected Components:
+
+- itkConnectedComponentFunctorImageFilter 
+  - https://itk.org/Doxygen/html/itkConnectedComponentFunctorImageFilter_8h.html
+  - https://itk.org/Doxygen46/html/itkConnectedComponentFunctorImageFilter_8h_source.html
+- itkHardConnectedComponentImageFilter
+  - https://itk.org/Doxygen/html/itkHardConnectedComponentImageFilter_8h.html
+  - https://itk.org/Doxygen46/html/itkHardConnectedComponentImageFilter_8h_source.html
+- itkVectorConnectedComponentImageFilter
+  - https://itk.org/Doxygen/html/itkVectorConnectedComponentImageFilter_8h_source.html
+- itkScalarConnectedComponentImageFilter
+  - https://itk.org/Doxygen/html/itkScalarConnectedComponentImageFilter_8h.html
+  - https://itk.org/Doxygen/html/itkScalarConnectedComponentImageFilter_8h_source.html
+- itkThresholdMaximumConnectedComponentsImageFilter
+  - https://itk.org/Doxygen46/html/itkThresholdMaximumConnectedComponentsImageFilter_8h.html
+  - https://itk.org/Doxygen49/html/itkThresholdMaximumConnectedComponentsImageFilter_8h_source.html
+
+Mathematical Morphology
+
+- itkGrayscaleConnectedClosingImageFilter
+- itkGrayscaleConnectedOpeningImageFilter
+
+Numerics:
+
+- itkCompletelyConnectedWeightSet
+
+Region growing:
+
+- itkNeighborhoodConnectedImageFilter
+- itkConnectedThresholdImageFilter - https://itk.org/Doxygen/html/itkConnectedThresholdImageFilter_8h.html
+- itkVectorConfidenceConnectedImageFilter - https://itk.org/Doxygen/html/itkVectorConfidenceConnectedImageFilter_8h.html
+
+
+
+#+BEGIN_SRC shell
+$ find ~/work/af/ITK/Modules -name '*Connected*'
+#+END_SRC
+#+BEGIN_SRC shell
+# itkConnectedComponentAlgorithm
+./Core/Common/include/itkConnectedComponentAlgorithm.h
+
+# itkConnectedRegionsMeshFilter
+./Core/Mesh/include/itkConnectedRegionsMeshFilter.h
+./Core/Mesh/include/itkConnectedRegionsMeshFilter.hxx
+
+# itkCompletelyConnectedWeightSet
+./Numerics/NeuralNetworks/include/itkCompletelyConnectedWeightSet.h
+./Numerics/NeuralNetworks/include/itkCompletelyConnectedWeightSet.hxx
+
+# itkConnectedThresholdImageFilter
+./Segmentation/RegionGrowing/include/itkConnectedThresholdImageFilter.hxx
+./Segmentation/RegionGrowing/include/itkConnectedThresholdImageFilter.h
+./Segmentation/RegionGrowing/test/itkConnectedThresholdImageFilterTest.cxx
+./Segmentation/RegionGrowing/wrapping/itkConnectedThresholdImageFilter.wrap
+
+# itkVectorConfidenceConnectedImageFilter
+./Segmentation/RegionGrowing/include/itkVectorConfidenceConnectedImageFilter.h
+./Segmentation/RegionGrowing/include/itkVectorConfidenceConnectedImageFilter.hxx
+./Segmentation/RegionGrowing/test/itkVectorConfidenceConnectedImageFilterTest.cxx
+./Segmentation/RegionGrowing/wrapping/itkVectorConfidenceConnectedImageFilter.wrap
+
+# itkNeighborhoodConnectedImageFilter
+./Segmentation/RegionGrowing/include/itkNeighborhoodConnectedImageFilter.h
+./Segmentation/RegionGrowing/include/itkNeighborhoodConnectedImageFilter.hxx
+./Segmentation/RegionGrowing/test/itkNeighborhoodConnectedImageFilterTest.cxx
+./Segmentation/RegionGrowing/wrapping/itkNeighborhoodConnectedImageFilter.wrap
+
+# itkIsolatedConnectedImageFilter
+./Segmentation/RegionGrowing/include/itkIsolatedConnectedImageFilter.h
+./Segmentation/RegionGrowing/include/itkIsolatedConnectedImageFilter.hxx
+./Segmentation/RegionGrowing/test/itkIsolatedConnectedImageFilterTest.cxx
+./Segmentation/RegionGrowing/wrapping/itkIsolatedConnectedImageFilter.wrap
+
+# itkConfidenceConnectedImageFilter
+./Segmentation/RegionGrowing/include/itkConfidenceConnectedImageFilter.h
+./Segmentation/RegionGrowing/include/itkConfidenceConnectedImageFilter.hxx
+./Segmentation/RegionGrowing/test/itkConfidenceConnectedImageFilterTest.cxx
+./Segmentation/RegionGrowing/wrapping/itkConfidenceConnectedImageFilter.wrap
+
+# itkConnectedComponentImageFilter
+./Segmentation/ConnectedComponents/include/itkConnectedComponentImageFilter.hxx
+./Segmentation/ConnectedComponents/include/itkConnectedComponentImageFilter.h
+./Segmentation/ConnectedComponents/test/itkConnectedComponentImageFilterBackgroundTest.cxx
+./Segmentation/ConnectedComponents/test/itkConnectedComponentImageFilterTest.cxx
+./Segmentation/ConnectedComponents/test/itkConnectedComponentImageFilterTestRGB.cxx
+./Segmentation/ConnectedComponents/test/itkConnectedComponentImageFilterTooManyObjectsTest.cxx
+./Segmentation/ConnectedComponents/wrapping/itkConnectedComponentImageFilter.wrap
+
+# itkHardConnectedComponentImageFilter
+./Segmentation/ConnectedComponents/include/itkHardConnectedComponentImageFilter.hxx
+./Segmentation/ConnectedComponents/include/itkHardConnectedComponentImageFilter.h
+./Segmentation/ConnectedComponents/test/itkHardConnectedComponentImageFilterTest.cxx
+./Segmentation/ConnectedComponents/wrapping/itkHardConnectedComponentImageFilter.wrap
+
+# itkThresholdMaximumConnectedComponentsImageFilter
+./Segmentation/ConnectedComponents/include/itkThresholdMaximumConnectedComponentsImageFilter.h
+./Segmentation/ConnectedComponents/include/itkThresholdMaximumConnectedComponentsImageFilter.hxx
+./Segmentation/ConnectedComponents/test/itkThresholdMaximumConnectedComponentsImageFilterTest.cxx
+./Segmentation/ConnectedComponents/wrapping/itkThresholdMaximumConnectedComponentsImageFilter.wrap
+
+# itkVectorConnectedComponentImageFilter
+./Segmentation/ConnectedComponents/include/itkVectorConnectedComponentImageFilter.h
+./Segmentation/ConnectedComponents/test/itkVectorConnectedComponentImageFilterTest.cxx
+./Segmentation/ConnectedComponents/wrapping/itkVectorConnectedComponentImageFilter.wrap
+
+# itkConnectedComponentFunctorImageFilter
+./Segmentation/ConnectedComponents/include/itkConnectedComponentFunctorImageFilter.hxx
+./Segmentation/ConnectedComponents/include/itkConnectedComponentFunctorImageFilter.h
+
+# itkScalarConnectedComponentImageFilter
+./Segmentation/ConnectedComponents/include/itkScalarConnectedComponentImageFilter.h
+./Segmentation/ConnectedComponents/test/itkScalarConnectedComponentImageFilterTest.cxx
+./Segmentation/ConnectedComponents/wrapping/itkScalarConnectedComponentImageFilter.wrap
+
+# itkGrayscaleConnectedClosingImageFilter
+./Filtering/MathematicalMorphology/include/itkGrayscaleConnectedClosingImageFilter.h
+./Filtering/MathematicalMorphology/include/itkGrayscaleConnectedClosingImageFilter.hxx
+./Filtering/MathematicalMorphology/test/itkGrayscaleConnectedClosingImageFilterTest.cxx
+./Filtering/MathematicalMorphology/wrapping/itkGrayscaleConnectedClosingImageFilter.wrap
+
+# itkGrayscaleConnectedOpeningImageFilter
+./Filtering/MathematicalMorphology/include/itkGrayscaleConnectedOpeningImageFilter.hxx
+./Filtering/MathematicalMorphology/include/itkGrayscaleConnectedOpeningImageFilter.h
+./Filtering/MathematicalMorphology/test/itkGrayscaleConnectedOpeningImageFilterTest.cxx
+./Filtering/MathematicalMorphology/wrapping/itkGrayscaleConnectedOpeningImageFilter.wrap
+#+END_SRC
