@@ -323,6 +323,9 @@ BoundingBox< TPointIdentifier, VPointDimension, TCoordRep, TPointsContainer >
   return dist2;
 }
 
+// \MAL this looks for the exact value match in order to determine if
+// the point you are passing in is the same in value to those
+// currently in the region bounds
 template< typename TPointIdentifier, int VPointDimension,
           typename TCoordRep, typename TPointsContainer >
 bool

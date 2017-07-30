@@ -38,7 +38,7 @@ ConfidenceConnectedImageFilter< TInputImage, TOutputImage >
 ::ConfidenceConnectedImageFilter()
 {
   m_Multiplier = 2.5;
-  m_NumberOfIterations = 4;
+  m_NumberOfIterations = 5;
   m_Seeds.clear();
   m_InitialNeighborhoodRadius = 1;
   m_ReplaceValue = NumericTraits< OutputImagePixelType >::OneValue();
@@ -138,6 +138,7 @@ void
 ConfidenceConnectedImageFilter< TInputImage, TOutputImage >
 ::GenerateData()
 {
+  std::cout << "=======MIGUEL============\n";
   typedef BinaryThresholdImageFunction< InputImageType, double >  FunctionType;
   typedef BinaryThresholdImageFunction< OutputImageType, double > SecondFunctionType;
 
@@ -204,7 +205,7 @@ ConfidenceConnectedImageFilter< TInputImage, TOutputImage >
 
     if ( num == 0 )
       {
-      this->UpdateProgress(1.0);
+      this->UpdateProgress(1.0); // \ML
       // no seeds result in zero image
       return;
       }
@@ -237,7 +238,7 @@ ConfidenceConnectedImageFilter< TInputImage, TOutputImage >
 
     if ( num == 0 )
       {
-      this->UpdateProgress(1.0);
+      this->UpdateProgress(1.0); // \ML
       // no seeds result in zero image
       return;
       }
@@ -296,7 +297,7 @@ ConfidenceConnectedImageFilter< TInputImage, TOutputImage >
     }
 
   function->ThresholdBetween( static_cast< InputImagePixelType >( lower ),
-                              static_cast< InputImagePixelType >( upper ) );
+                              static_cast< InputImagePixelType >( upper ) ); // \ML
 
   itkDebugMacro(
     << "\nLower intensity = " << lower << ", Upper intensity = " << upper << "\nmean = " << m_Mean
